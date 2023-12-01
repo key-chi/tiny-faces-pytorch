@@ -1,8 +1,9 @@
 # tiny-faces-pytorch
 
-This is a PyTorch implementation of Peiyun Hu's [awesome tiny face detector](https://github.com/peiyunh/tiny). 
+This is a PyTorch implementation of Peiyun Hu's [awesome tiny face detector](https://github.com/peiyunh/tiny).  
+Additionally see the repo at [sunwood-ai-labs](https://github.com/Sunwood-ai-labs/tiny-faces-pytorch) for example updates.  
 
-We use (and recommend) **Python 3.6+** for minimal pain when using this codebase (plus Python 3.6 has really cool features).
+We use **Python 3.8** for minimal updates when using this codebase.
 
 **NOTE** Be sure to cite Peiyun's CVPR paper and this repo if you use this code!
 
@@ -18,7 +19,12 @@ This code gives the following mAP results on the WIDER Face dataset:
 
 - Clone this repository.
 - Download the WIDER Face dataset and annotations files to `data/WIDER`.
-- Install dependencies with `pip install -r requirements.txt`.
+- Build the docker container with `docker compose build`
+- Start it with `docker compose up -d`
+- Connect to the docker container with `docker compose exec tiny-faces /bin/bash`
+- Once inside the docker container, do the following:
+    - Install dependencies with `pip install -r requirements.txt`.
+    - Train with `make`
 
 Your data directory should look like this for WIDERFace
 
