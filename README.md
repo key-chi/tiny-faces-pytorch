@@ -21,6 +21,7 @@ This code gives the following mAP results on the WIDER Face dataset:
 - Download the WIDER Face dataset and annotations files to `data/WIDER`.
 - Build the docker container with `docker compose build`
 - Start it with `docker compose up -d`
+- (Optional) I tried to forward X11 display stuff in the compose.yaml, it would need `xhost +local:docker` but didn't work lol
 - Connect to the docker container with `docker compose exec tiny-faces /bin/bash`
 - Once inside the docker container, do the following:
     - Install dependencies with `pip install -r requirements.txt`.
