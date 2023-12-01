@@ -1,0 +1,22 @@
+services:
+  tiny-faces:
+    build:
+      context: .
+    shm_size: '16gb'
+    environment:
+      - CUDA_LAUNCH_BLOCKING=1
+      - DISPLAY=${DISPLAY} # Add this line
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+    volumes:
+      - .:/home/tiny-faces
+      - /tmp/.X11-unix:/tmp/.X11-unix # Mount the X11 socket
+
+    working_dir: /home/tiny-faces
+    stdin_open: true
+    tty: true

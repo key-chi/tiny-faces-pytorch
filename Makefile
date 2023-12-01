@@ -5,11 +5,12 @@ ROOT=data/WIDER
 TRAINDATA=$(ROOT)/wider_face_split/wider_face_train_bbx_gt.txt
 VALDATA=$(ROOT)/wider_face_split/wider_face_val_bbx_gt.txt
 TESTDATA=$(ROOT)/wider_face_split/wider_face_test_filelist.txt
+BATCHSIZE=6
 
-CHECKPOINT=weights/checkpoint_50.pth
+CHECKPOINT=weights/checkpoint_50_best.pth
 
 main: 
-        $(PYTHON) main.py $(TRAINDATA) $(VALDATA) --dataset-root $(ROOT)
+        $(PYTHON) main.py $(TRAINDATA) $(VALDATA) --dataset-root $(ROOT) --batch_size $(BATCHSIZE)
 
 resume: 
         $(PYTHON) main.py $(TRAINDATA) $(VALDATA) --dataset-root $(ROOT) --resume $(CHECKPOINT) --epochs $(EPOCH)

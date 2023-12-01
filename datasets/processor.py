@@ -249,7 +249,7 @@ class DataProcessor:
         # Return heatmaps
         return class_maps, regress_maps, iou
 
-    def visualize_heatmaps(self, img, cls_map, reg_map, templates, prob_thresh=1, nms_thresh=1, iou=None):
+    def visualize_heatmaps(self, img, cls_map, reg_map, templates, prob_thresh=1, nms_thresh=1, iou=None, image_id="debug-heatmap", directory="out"):
         """
         Expect cls_map and reg_map to be of the form HxWxC
         """
@@ -305,3 +305,4 @@ class DataProcessor:
             #     break
 
         img.show(title="Heatmap visualized")
+        img.save("{0}/{1}.jpg".format(directory, image_id))

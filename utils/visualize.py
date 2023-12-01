@@ -26,7 +26,7 @@ def draw_all_boxes(img, bboxes, categories):
     img.show()
 
 
-def visualize_bboxes(image, bboxes):
+def visualize_bboxes(image, bboxes, image_id="debug", directory="out"):
     """
 
     :param image: PIL image
@@ -40,6 +40,8 @@ def visualize_bboxes(image, bboxes):
         image = draw_bounding_box(image, bbox, {"name": "{0}".format(idx)})
 
     image.show(title="BBoxes")
+    image.save("{0}/{1}.jpg".format(directory, image_id))
+
 
 def render_and_save_bboxes(image, image_id, bboxes, scores, scales, directory="qualitative"):
     """
