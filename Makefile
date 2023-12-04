@@ -22,7 +22,7 @@ evaluation:
         cd eval_tools/ && octave wider_eval.m
 
 test: 
-        $(PYTHON) evaluate.py $(TESTDATA) --dataset-root $(ROOT) --checkpoint $(CHECKPOINT) --split test
+        $(PYTHON) test.py $(TESTDATA) --dataset-root $(ROOT) --checkpoint $(CHECKPOINT) --split test
 
 cluster: 
         cd utils; $(PYTHON) cluster.py $(TRAIN_INSTANCES)
