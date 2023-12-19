@@ -13,7 +13,9 @@ RUN apt-get install -y \
     liblapack-dev \
     gfortran \
     libgl1-mesa-dev
-RUN python3 -m pip install --upgrade pip setuptools wheel
+RUN pip install --upgrade pip
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 
 # Define environment variable
 #ENV NAME tiny-faces-pytorch

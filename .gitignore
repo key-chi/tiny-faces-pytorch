@@ -110,3 +110,5 @@ data/WIDER/wider_face_split
 
 out/*
 val_results/*
+
+.idea/

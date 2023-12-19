@@ -11,6 +11,8 @@ from datasets import get_dataloader
 from models.loss import DetectionCriterion
 from models.model import DetectionModel
 
+from datasets import data_loader_CBIS_DDSM
+
 
 def arguments():
     parser = argparse.ArgumentParser()
@@ -41,11 +43,15 @@ def main():
     normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                      std=[0.229, 0.224, 0.225])
     img_transforms = transforms.Compose([
+        #transforms.Resize(1024),  # Resize to 224x224
+        #transforms.Grayscale(num_output_channels=3),  # Convert to 3-channel grayscale
         transforms.ToTensor(),
         normalize
     ])
-    train_loader, _ = get_dataloader(args.traindata, args, num_templates,
-                                     img_transforms=img_transforms)
+    #train_loader, _ = get_dataloader(args.traindata, args, num_templates,
+    #                                 img_transforms=img_transforms)
+
+    train_loader, _ = data_loader_CBIS_DDSM.load_data(args.dataset_root, args.traindata, 0.15, args.batch_size, img_transforms)
 
     model = DetectionModel(num_objects=1, num_templates=num_templates)
     loss_fn = DetectionCriterion(num_templates)

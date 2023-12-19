@@ -16,6 +16,7 @@ services:
     volumes:
       - .:/home/tiny-faces
       - /tmp/.X11-unix:/tmp/.X11-unix # Mount the X11 socket
+      - /media/kelly/6432-6431/mammography:/home/tiny-faces/data/mammography
 
     working_dir: /home/tiny-faces
     stdin_open: true

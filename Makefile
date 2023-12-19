@@ -1,10 +1,10 @@
 .RECIPEPREFIX +=
 
 PYTHON=python3
-ROOT=data/WIDER
-TRAINDATA=$(ROOT)/wider_face_split/wider_face_train_bbx_gt.txt
+ROOT=/home/tiny-faces/data/mammography/manifest-ZkhPvrLo5216730872708713142/CBIS-DDSM
+TRAINDATA=$(ROOT)/../mass_case_description_train_set.csv
 VALDATA=$(ROOT)/wider_face_split/wider_face_val_bbx_gt.txt
-TESTDATA=$(ROOT)/wider_face_split/wider_face_test_filelist.txt
+#TESTDATA=$(ROOT)/wider_face_split/wider_face_test_filelist.txt
 BATCHSIZE=6
 
 CHECKPOINT=weights/checkpoint_50_best.pth
